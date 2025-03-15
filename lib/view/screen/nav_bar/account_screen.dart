@@ -1,4 +1,5 @@
 import 'package:dr_ai/cache/cache.dart';
+import 'package:dr_ai/logic/theme/theme_cubit.dart';
 import 'package:dr_ai/utils/constant/color.dart';
 import 'package:dr_ai/utils/constant/image.dart';
 import 'package:dr_ai/utils/constant/routes.dart';
@@ -66,7 +67,9 @@ class _AccountScreenState extends State<AccountScreen> {
                   BuildProfileCard(
                     title: "Dark Mode",
                     image: ImageManager.darkModeIcon,
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<ThemeCubit>().toggleTheme();
+                    },
                   ),
                   divider,
                   BuildProfileCard(
@@ -116,7 +119,7 @@ class _AccountScreenState extends State<AccountScreen> {
                             subtitle: "Are you sure you want to logout?",
                             buttonTitle: "Logout",
                             secondButtoncolor: ColorManager.error,
-                            onPressed: () async => await cubit.logout(),
+                            onPressed: () async => await cubit.logout(context),
                             image: ImageManager.errorIcon,
                           )),
                 ],

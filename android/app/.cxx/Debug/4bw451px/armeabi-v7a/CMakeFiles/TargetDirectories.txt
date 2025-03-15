@@ -1,0 +1,2 @@
+C:/Users/omarc/Documents/test/Dr.Ai/android/app/.cxx/Debug/4bw451px/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/omarc/Documents/test/Dr.Ai/android/app/.cxx/Debug/4bw451px/armeabi-v7a/CMakeFiles/rebuild_cache.dir

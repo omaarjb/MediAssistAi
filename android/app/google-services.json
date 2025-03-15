@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "500533961858-dh6eldva8vhpir8hi0kd0qggcvb9ufoq.apps.googleusercontent.com",
+          "client_id": "500533961858-lcjlsiguaq4h7hcsvfous3fi8eml1mef.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.dr_ai",
-            "certificate_hash": "b53831d5337f3342e39ca6c4e431d9db89b209f9"
+            "certificate_hash": "9c2edc7c33f4b9c750ff967f16bd2e5f0be20763"
           }
         },
         {
@@ -37,6 +37,13 @@
             {
               "client_id": "500533961858-b887de6jvb3oge3eke4hc55090f1jnjn.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "500533961858-dkiucertn2mihmebssnqd8u3h5kjd0kg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.drAi"
+              }
             }
           ]
         }

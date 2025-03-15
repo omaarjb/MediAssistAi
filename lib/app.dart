@@ -9,7 +9,8 @@ import 'utils/helper/responsive.dart';
 import 'router/app_router.dart';
 import 'utils/theme/app_theme.dart';
 import 'logic/account/account_cubit.dart';
-import 'logic/auth/social_auth/social_auth.dart';
+import 'logic/auth/social_auth/social_auth_cubit.dart';
+import 'logic/theme/theme_cubit.dart'; // Add the theme cubit
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -31,34 +32,46 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => SocialAuthCubit(),
         ),
+        BlocProvider(
+          create: (context) => ThemeCubit(), // Provide the ThemeCubit
+        ),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),
         minTextAdapt: true,
         splitScreenMode: true,
         child: Builder(
-            builder: (_) => MaterialApp(
-                  builder: (context, widget) {
-                    final mediaQueryData = MediaQuery.of(context);
-                    final scaledMediaQueryData = mediaQueryData.copyWith(
-                      textScaler: TextScaler.noScaling,
-                    );
-                    return MediaQuery(
-                      data: scaledMediaQueryData,
-                      child: widget!,
-                    );
-                  },
-                  themeAnimationStyle: AnimationStyle(
-                    duration: const Duration(microseconds: 250),
-                    curve: Curves.ease,
-                  ),
-                  color: ColorManager.white,
-                  debugShowCheckedModeBanner: false,
-                  title: 'Dr AI',
-                  theme: AppTheme.lightTheme,
-                  initialRoute: RouteManager.initialRoute,
-                  onGenerateRoute: AppRouter.onGenerateRoute,
-                )),
+          builder: (_) => BlocBuilder<ThemeCubit, ThemeModeState>(
+            builder: (context, themeState) {
+              return MaterialApp(
+                builder: (context, widget) {
+                  final mediaQueryData = MediaQuery.of(context);
+                  final scaledMediaQueryData = mediaQueryData.copyWith(
+                    textScaler: TextScaler.noScaling,
+                  );
+                  return MediaQuery(
+                    data: scaledMediaQueryData,
+                    child: widget!,
+                  );
+                },
+                themeAnimationStyle: AnimationStyle(
+                  duration: const Duration(microseconds: 250),
+                  curve: Curves.ease,
+                ),
+                color: ColorManager.white,
+                debugShowCheckedModeBanner: false,
+                title: 'Dr AI',
+                theme: AppTheme.lightTheme,
+                darkTheme: AppTheme.darkTheme, // Apply dark theme
+                themeMode: context
+                    .read<ThemeCubit>()
+                    .themeMode, // Dynamically switch theme
+                initialRoute: RouteManager.initialRoute,
+                onGenerateRoute: AppRouter.onGenerateRoute,
+              );
+            },
+          ),
+        ),
       ),
     );
   }

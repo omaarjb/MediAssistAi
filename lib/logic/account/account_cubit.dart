@@ -4,7 +4,11 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dr_ai/cache/cache.dart';
 import 'package:dr_ai/data/model/user_data_model.dart';
+import 'package:dr_ai/logic/auth/social_auth/social_auth_cubit.dart';
+import 'package:dr_ai/utils/constant/routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 part 'account_state.dart';
 
@@ -30,12 +34,27 @@ class AccountCubit extends Cubit<AccountState> {
     }
   }
 
-  Future<void> logout() async {
+  Future<void> logout(BuildContext context) async {
     emit(AccountLogoutLoading());
     try {
       await Future.delayed(const Duration(seconds: 1));
       await CacheData.clearData(clearData: true);
       await FirebaseAuth.instance.signOut();
+
+      // Reset SocialAuthCubit state
+      context.read<SocialAuthCubit>().resetState();
+
+      // Verify that the user is signed out
+      if (FirebaseAuth.instance.currentUser == null) {
+        print("User successfully signed out");
+      } else {
+        print("User is still signed in");
+      }
+
+      // Navigate to the login screen
+      Navigator.pushNamedAndRemoveUntil(
+          context, RouteManager.login, (route) => false);
+
       emit(AccountLogoutSuccess(message: "Logout successfully"));
     } on FirebaseException catch (err) {
       emit(AccountFailure(message: err.toString()));

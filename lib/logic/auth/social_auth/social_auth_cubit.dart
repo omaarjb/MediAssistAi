@@ -62,7 +62,7 @@ class SocialAuthCubit extends Cubit<SocialAuthState> {
       }
 
       final OAuthCredential facebookAuthCredential =
-          FacebookAuthProvider.credential(loginResult.accessToken!.token);
+          FacebookAuthProvider.credential(loginResult.accessToken!.tokenString);
       final userCredential =
           await _firebaseAuth.signInWithCredential(facebookAuthCredential);
 

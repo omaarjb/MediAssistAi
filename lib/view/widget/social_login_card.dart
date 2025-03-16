@@ -44,9 +44,6 @@ class SocialLoginCard extends StatelessWidget {
           children: [
             OutlinedButton(
               style: style,
-              child: state == SocialAuthState.loading
-                  ? CircularProgressIndicator() // Show loading indicator
-                  : _buildSVGIcon(ImageManager.googleIcon),
               onPressed: state == SocialAuthState.loading ||
                       state == SocialAuthState.authenticated
                   ? null // Disable button when loading or authenticated
@@ -54,12 +51,12 @@ class SocialLoginCard extends StatelessWidget {
                       print("Google sign-in button pressed"); // Debugging
                       context.read<SocialAuthCubit>().signInWithGoogle();
                     },
+              child: state == SocialAuthState.loading
+                  ? const CircularProgressIndicator() // Show loading indicator
+                  : _buildSVGIcon(ImageManager.googleIcon),
             ),
             OutlinedButton(
               style: style,
-              child: state == SocialAuthState.loading
-                  ? CircularProgressIndicator() // Show loading indicator
-                  : _buildSVGIcon(ImageManager.facebookIcon),
               onPressed: state == SocialAuthState.loading ||
                       state == SocialAuthState.authenticated
                   ? null // Disable button when loading or authenticated
@@ -67,12 +64,12 @@ class SocialLoginCard extends StatelessWidget {
                       print("Facebook sign-in button pressed"); // Debugging
                       context.read<SocialAuthCubit>().signInWithFacebook();
                     },
+              child: state == SocialAuthState.loading
+                  ? const CircularProgressIndicator() // Show loading indicator
+                  : _buildSVGIcon(ImageManager.facebookIcon),
             ),
             OutlinedButton(
               style: style,
-              child: state == SocialAuthState.loading
-                  ? CircularProgressIndicator() // Show loading indicator
-                  : _buildSVGIcon(ImageManager.appleIcon),
               onPressed: state == SocialAuthState.loading ||
                       state == SocialAuthState.authenticated
                   ? null // Disable button when loading or authenticated
@@ -80,6 +77,9 @@ class SocialLoginCard extends StatelessWidget {
                       print("Apple sign-in button pressed"); // Debugging
                       context.read<SocialAuthCubit>().signInWithApple();
                     },
+              child: state == SocialAuthState.loading
+                  ? const CircularProgressIndicator() // Show loading indicator
+                  : _buildSVGIcon(ImageManager.appleIcon),
             ),
           ],
         );

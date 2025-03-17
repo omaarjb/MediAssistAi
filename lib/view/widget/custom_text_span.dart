@@ -12,20 +12,22 @@ class CustomTextSpan extends StatelessWidget {
   final String textOne;
   final String textTwo;
   final double? fontSize;
+
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center, // Center vertically
+      crossAxisAlignment: CrossAxisAlignment.center, // Center horizontally
       children: [
         Text(
           textOne,
           style: context.textTheme.bodyLarge
-              ?.copyWith(fontSize: fontSize ?? 32.sp),
+              ?.copyWith(fontSize: fontSize ?? 26.sp),
         ),
         Text(
           textTwo,
           style: context.textTheme.displayLarge
-              ?.copyWith(fontSize: fontSize ?? 32.sp),
+              ?.copyWith(fontSize: fontSize ?? 26.sp),
         ),
       ],
     );

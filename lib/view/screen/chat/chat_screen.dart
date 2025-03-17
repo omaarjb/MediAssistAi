@@ -61,10 +61,15 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   void _sendMessage() {
-    _txtController.text.trim();
-    if (_txtController.text.isNotEmpty) {
-      context.read<ChatCubit>().sendMessage(message: _txtController.text);
+    print("Send button clicked!"); // ✅ print when the button is pressed
+
+    String trimmedText = _txtController.text.trim();
+    if (trimmedText.isNotEmpty) {
+      print("Sending message: $trimmedText"); // ✅ print the message
+      context.read<ChatCubit>().sendMessage(message: trimmedText);
       _txtController.clear();
+    } else {
+      print("Empty message, not sending.");
     }
   }
 

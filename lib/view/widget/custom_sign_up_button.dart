@@ -29,7 +29,7 @@ class SignUpButton extends StatelessWidget {
           ),
           const Icon(
             Icons.arrow_outward,
-            color: ColorManager.green,
+            color: Color.fromARGB(255, 2, 89, 219),
           )
         ],
       ),

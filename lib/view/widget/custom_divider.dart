@@ -14,8 +14,8 @@ class CustomDivider extends StatelessWidget {
       children: [
         const Expanded(
             child: Divider(
-          color: ColorManager.grey,
-          thickness: 1,
+          color: Color.fromARGB(255, 2, 89, 219),
+          thickness: 2,
           endIndent: 10,
         )),
         Text(
@@ -24,8 +24,8 @@ class CustomDivider extends StatelessWidget {
         ),
         const Expanded(
             child: Divider(
-          color: ColorManager.grey,
-          thickness: 1,
+          color: Color.fromARGB(255, 2, 89, 219),
+          thickness: 2,
           indent: 10,
         )),
       ],

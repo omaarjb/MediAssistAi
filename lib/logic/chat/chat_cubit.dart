@@ -52,6 +52,8 @@ class ChatCubit extends Cubit<ChatState> {
   }
 
   Future<void> sendMessage({required String message}) async {
+    print("sendMessage() called with: $message");
+
     emit(ChatSenderLoading());
     try {
       final chatMessageModel = ChatMessageModel(
@@ -60,20 +62,30 @@ class ChatCubit extends Cubit<ChatState> {
         timeTamp: dateTimeFormatter(),
       );
       await _messagesBox?.add(chatMessageModel);
+      print("Message added to Hive box");
+
       emit(ChatSendSuccess());
       await Future.delayed(const Duration(milliseconds: 350));
 
       emit(ChatReceiverLoading());
+
+      print("Calling GenerativeAiWebService.postData with message: $message");
+
       final response = await GenerativeAiWebService.postData(text: message);
-      log(response.toString());
+
+      print("Response from API: $response");
+
       await _messagesBox?.add(ChatMessageModel(
         isUser: false,
         message: response ?? "ERROR",
         timeTamp: dateTimeFormatter(),
       ));
+
       emit(ChatSendSuccess());
-    } on HiveError catch (err) {
-      emit(ChatFailure(message: err.message.toString()));
+    } catch (err, stackTrace) {
+      print("Error in sendMessage: ${err.toString()}");
+      print("StackTrace: ${stackTrace.toString()}");
+      emit(ChatFailure(message: err.toString()));
     }
   }
 

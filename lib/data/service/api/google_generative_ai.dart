@@ -5,21 +5,42 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 
 class GenerativeAiWebService {
   static final _model = GenerativeModel(
-    model: ApiUrlManager.generativeModelVersion,
-    apiKey: ApiUrlManager.generativeModelApiKey,
+    model: 'gemini-2.0-flash',
+    apiKey: 'AIzaSyCc_RgZftsJWzvZ2_bMqwveG3Lr0Nuzlw0',
   );
   static Future<String?> postData({required String text}) async {
     try {
-      final content = [Content.text(text)];
+      print("postData() called with text: $text");
+
+      // System prompt to set the context
+      const systemPrompt = '''
+You are MediAssistAI, a virtual assistant in the MediAssistAI app. 
+Your role is to provide solutions, advice, and information for symptoms, health concerns, and general medical queries. 
+Always respond in a professional, empathetic, and helpful manner. 
+If the user asks unrelated questions, politely guide them back to health-related topics.
+''';
+
+      // Combine the system prompt with the user's message
+      final content = [
+        Content.text(systemPrompt), // System prompt
+        Content.text(text), // User's message
+      ];
+
       final response = await _model.generateContent(content);
-      log("Data posted successfully!");
+
+      print("Raw API response: ${response.text}");
+
+      if (response.text == null) {
+        print('Response is null');
+        return "ERROR";
+      }
 
       final cleanResponse = response.text!.trim();
-      log('response: $cleanResponse');
+      print('Clean response: $cleanResponse');
       return cleanResponse;
-    } on Exception catch (err) {
-      log(err.toString());
-      return null;
+    } catch (err) {
+      print("Error in postData: ${err.toString()}");
+      return "ERROR";
     }
   }
 

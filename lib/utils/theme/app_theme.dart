@@ -9,17 +9,19 @@ abstract class AppTheme {
     return ThemeData(
       brightness: Brightness.light,
       textSelectionTheme: TextSelectionThemeData(
-        cursorColor: ColorManager.green,
-        selectionColor: ColorManager.green.withOpacity(0.3),
-        selectionHandleColor: ColorManager.green,
+        cursorColor: const Color.fromARGB(255, 2, 89, 219),
+        selectionColor: const Color.fromARGB(255, 2, 89, 219).withOpacity(0.3),
+        selectionHandleColor: const Color.fromARGB(255, 2, 89, 219),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: ButtonStyle(
-          overlayColor:
-              WidgetStatePropertyAll(ColorManager.green.withOpacity(0.1)),
-          foregroundColor: const WidgetStatePropertyAll(ColorManager.green),
-          side: WidgetStatePropertyAll(
-              BorderSide(width: 3, color: ColorManager.green.withOpacity(0.3))),
+          overlayColor: WidgetStatePropertyAll(
+              const Color.fromARGB(255, 2, 89, 219).withOpacity(0.1)),
+          foregroundColor:
+              const WidgetStatePropertyAll(Color.fromARGB(255, 2, 89, 219)),
+          side: WidgetStatePropertyAll(BorderSide(
+              width: 3,
+              color: const Color.fromARGB(255, 2, 89, 219).withOpacity(0.3))),
           shape: WidgetStatePropertyAll(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
           fixedSize: WidgetStatePropertyAll(Size(95.w, 50.h)),
@@ -30,7 +32,8 @@ abstract class AppTheme {
           overlayColor:
               WidgetStatePropertyAll(ColorManager.white.withOpacity(0.2)),
           foregroundColor: const WidgetStatePropertyAll(ColorManager.white),
-          backgroundColor: const WidgetStatePropertyAll(ColorManager.green),
+          backgroundColor:
+              const WidgetStatePropertyAll(Color.fromARGB(255, 2, 89, 219)),
           shape: WidgetStatePropertyAll(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
           fixedSize: WidgetStatePropertyAll(Size(double.maxFinite, 48.h)),
@@ -45,9 +48,10 @@ abstract class AppTheme {
       ),
       iconTheme: const IconThemeData(color: ColorManager.black),
       switchTheme: const SwitchThemeData(
-        trackOutlineColor: WidgetStatePropertyAll(ColorManager.green),
+        trackOutlineColor:
+            WidgetStatePropertyAll(Color.fromARGB(255, 2, 89, 219)),
         thumbColor: WidgetStatePropertyAll(ColorManager.white),
-        trackColor: WidgetStatePropertyAll(ColorManager.green),
+        trackColor: WidgetStatePropertyAll(Color.fromARGB(255, 2, 89, 219)),
         thumbIcon: WidgetStatePropertyAll(
             Icon(Icons.light_mode, color: ColorManager.white)),
       ),
@@ -59,7 +63,7 @@ abstract class AppTheme {
             color: ColorManager.black,
             fontSize: 20.spMin,
             fontWeight: FontWeight.w500),
-        backgroundColor: ColorManager.green,
+        backgroundColor: const Color.fromARGB(255, 2, 89, 219),
         scrolledUnderElevation: 0,
         titleSpacing: 0,
         iconTheme: const IconThemeData(color: ColorManager.black),
@@ -81,7 +85,7 @@ abstract class AppTheme {
             fontWeight: FontWeight.w400),
         displayLarge: TextStyle(
             fontSize: 24.spMin,
-            color: ColorManager.green,
+            color: const Color.fromARGB(255, 2, 89, 219),
             fontWeight: FontWeight.w600),
         displayMedium: TextStyle(
             fontSize: 16.spMin,
@@ -89,8 +93,8 @@ abstract class AppTheme {
             fontWeight: FontWeight.w600),
         displaySmall: TextStyle(
           decoration: TextDecoration.underline,
-          decorationColor: ColorManager.green,
-          color: ColorManager.green,
+          decorationColor: const Color.fromARGB(255, 2, 89, 219),
+          color: const Color.fromARGB(255, 2, 89, 219),
           fontSize: 14.spMin,
           fontWeight: FontWeight.w500,
         ),
@@ -100,19 +104,20 @@ abstract class AppTheme {
         filled: true,
         fillColor: ColorManager.white,
         focusedBorder: OutlineInputBorder(
-          borderRadius: const BorderRadius.all(Radius.circular(8)),
-          borderSide: BorderSide(width: 1.7.w, color: ColorManager.green),
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          borderSide: BorderSide(
+              width: 1.7.w, color: const Color.fromARGB(255, 2, 89, 219)),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: const BorderRadius.all(Radius.circular(8)),
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
           borderSide: BorderSide(width: 1.7.w, color: ColorManager.grey),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: const BorderRadius.all(Radius.circular(8)),
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
           borderSide: BorderSide(width: 2.w, color: ColorManager.error),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: const BorderRadius.all(Radius.circular(8)),
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
           borderSide: BorderSide(width: 2.w, color: ColorManager.error),
         ),
         contentPadding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 20.w),
@@ -125,17 +130,19 @@ abstract class AppTheme {
     return ThemeData(
       brightness: Brightness.dark,
       textSelectionTheme: TextSelectionThemeData(
-        cursorColor: ColorManager.green,
-        selectionColor: ColorManager.green.withOpacity(0.3),
-        selectionHandleColor: ColorManager.green,
+        cursorColor: const Color.fromARGB(255, 2, 89, 219),
+        selectionColor: const Color.fromARGB(255, 2, 89, 219).withOpacity(0.3),
+        selectionHandleColor: const Color.fromARGB(255, 2, 89, 219),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: ButtonStyle(
-          overlayColor:
-              WidgetStatePropertyAll(ColorManager.green.withOpacity(0.1)),
-          foregroundColor: const WidgetStatePropertyAll(ColorManager.green),
-          side: WidgetStatePropertyAll(
-              BorderSide(width: 3, color: ColorManager.green.withOpacity(0.3))),
+          overlayColor: WidgetStatePropertyAll(
+              const Color.fromARGB(255, 2, 89, 219).withOpacity(0.1)),
+          foregroundColor:
+              const WidgetStatePropertyAll(Color.fromARGB(255, 2, 89, 219)),
+          side: WidgetStatePropertyAll(BorderSide(
+              width: 3,
+              color: const Color.fromARGB(255, 2, 89, 219).withOpacity(0.3))),
           shape: WidgetStatePropertyAll(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
           fixedSize: WidgetStatePropertyAll(Size(95.w, 50.h)),
@@ -146,7 +153,8 @@ abstract class AppTheme {
           overlayColor:
               WidgetStatePropertyAll(ColorManager.white.withOpacity(0.2)),
           foregroundColor: const WidgetStatePropertyAll(ColorManager.white),
-          backgroundColor: const WidgetStatePropertyAll(ColorManager.green),
+          backgroundColor:
+              const WidgetStatePropertyAll(Color.fromARGB(255, 2, 89, 219)),
           shape: WidgetStatePropertyAll(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
           fixedSize: WidgetStatePropertyAll(Size(double.maxFinite, 48.h)),
@@ -161,9 +169,10 @@ abstract class AppTheme {
       ),
       iconTheme: const IconThemeData(color: ColorManager.white),
       switchTheme: const SwitchThemeData(
-        trackOutlineColor: WidgetStatePropertyAll(ColorManager.green),
+        trackOutlineColor:
+            WidgetStatePropertyAll(Color.fromARGB(255, 2, 89, 219)),
         thumbColor: WidgetStatePropertyAll(ColorManager.black),
-        trackColor: WidgetStatePropertyAll(ColorManager.green),
+        trackColor: WidgetStatePropertyAll(Color.fromARGB(255, 2, 89, 219)),
         thumbIcon: WidgetStatePropertyAll(
             Icon(Icons.dark_mode, color: ColorManager.black)),
       ),
@@ -175,7 +184,7 @@ abstract class AppTheme {
             color: ColorManager.white,
             fontSize: 20.spMin,
             fontWeight: FontWeight.w500),
-        backgroundColor: ColorManager.green,
+        backgroundColor: const Color.fromARGB(255, 2, 89, 219),
         scrolledUnderElevation: 0,
         titleSpacing: 0,
         iconTheme: const IconThemeData(color: ColorManager.white),
@@ -197,7 +206,7 @@ abstract class AppTheme {
             fontWeight: FontWeight.w400),
         displayLarge: TextStyle(
             fontSize: 24.spMin,
-            color: ColorManager.green,
+            color: const Color.fromARGB(255, 2, 89, 219),
             fontWeight: FontWeight.w600),
         displayMedium: TextStyle(
             fontSize: 16.spMin,
@@ -205,8 +214,8 @@ abstract class AppTheme {
             fontWeight: FontWeight.w600),
         displaySmall: TextStyle(
           decoration: TextDecoration.underline,
-          decorationColor: ColorManager.green,
-          color: ColorManager.green,
+          decorationColor: const Color.fromARGB(255, 2, 89, 219),
+          color: const Color.fromARGB(255, 2, 89, 219),
           fontSize: 14.spMin,
           fontWeight: FontWeight.w500,
         ),
@@ -217,7 +226,8 @@ abstract class AppTheme {
         fillColor: ColorManager.black,
         focusedBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(8)),
-          borderSide: BorderSide(width: 1.7.w, color: ColorManager.green),
+          borderSide: BorderSide(
+              width: 1.7.w, color: const Color.fromARGB(255, 2, 89, 219)),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(8)),

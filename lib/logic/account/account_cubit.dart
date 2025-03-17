@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dr_ai/cache/cache.dart';
 import 'package:dr_ai/data/model/user_data_model.dart';
@@ -9,7 +8,8 @@ import 'package:dr_ai/utils/constant/routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 part 'account_state.dart';
 
 class AccountCubit extends Cubit<AccountState> {
@@ -40,6 +40,8 @@ class AccountCubit extends Cubit<AccountState> {
       await Future.delayed(const Duration(seconds: 1));
       await CacheData.clearData(clearData: true);
       await FirebaseAuth.instance.signOut();
+      await GoogleSignIn().disconnect();
+      await FacebookAuth.instance.logOut();
 
       // Reset SocialAuthCubit state
       context.read<SocialAuthCubit>().resetState();

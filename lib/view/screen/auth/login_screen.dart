@@ -48,20 +48,14 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: context.theme.scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 0),
           child: Form(
             key: formKey,
             child: Column(
               children: [
                 Gap(context.height / 7),
-                const CustomTextSpan(textOne: "Welcome ", textTwo: "back"),
-                Gap(8.h),
-                Text(
-                  "Please enter your email & password to access your account.",
-                  textAlign: TextAlign.center,
-                  style:
-                      context.textTheme.bodySmall?.copyWith(fontSize: 16.spMin),
-                ),
+                const CustomTextSpan(
+                    textOne: "Welcome to ", textTwo: "MediAssistAi"),
                 Gap(20.h),
                 _buildEmailAndPasswordFields(),
                 Gap(12.h),
@@ -75,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                Gap(32.h),
+                Gap(40.h),
                 BlocConsumer<SignInCubit, SignInState>(
                   listener: (context, state) async {
                     if (state is SignInLoading) {
@@ -112,13 +106,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     );
                   },
                 ),
-                Gap(16.h),
+                Gap(20.h),
                 SignUpButton(
                   title: "Sign Up",
                   onTap: () => Navigator.pushNamed(context, RouteManager.email),
                 ),
-                Gap(32.h),
-                const CustomDivider(title: "Log in with"),
+                Gap(45.h),
+                const CustomDivider(title: "Or Log in with"),
                 Gap(16.h),
                 const SocialLoginCard(),
                 Gap(16.h),

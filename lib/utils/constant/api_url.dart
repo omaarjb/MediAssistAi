@@ -8,6 +8,7 @@ abstract class ApiUrlManager {
   static String placeLocation = dotenv.env['placeLocationBaseUrl']!;
   static String directions = dotenv.env['placedirectionsBaseUrl']!;
   static String nearestHospital = dotenv.env['nearestHospitalBaseUrl']!;
-  static String generativeModelApiKey = dotenv.env['generativeModelApiKey']!;
-  static String generativeModelVersion = dotenv.env['generativeModelVersion']!;
+  // static String generativeModelApiKey =
+  //     'AIzaSyCc_RgZftsJWzvZ2_bMqwveG3Lr0Nuzlw0';
+  // static String generativeModelVersion = 'gemini-pro';
 }

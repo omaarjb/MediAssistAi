@@ -15,10 +15,15 @@ class SocialLoginCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = context.outlinedButtonTheme.style?.copyWith(
-      fixedSize: MaterialStateProperty.all(
-        Size(context.width / 3.8, context.height * 0.07),
+    // Define a circular button style
+    final circularButtonStyle = OutlinedButton.styleFrom(
+      shape: const CircleBorder(), // Make the button circular
+      padding: EdgeInsets.all(5.w), // Adjust padding as needed
+      side: BorderSide(
+        color: Color.fromARGB(255, 2, 89, 219), // Border color
+        width: 2.0, // Border width
       ),
+      // Equal width and height
     );
 
     return BlocConsumer<SocialAuthCubit, SocialAuthState>(
@@ -43,7 +48,7 @@ class SocialLoginCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             OutlinedButton(
-              style: style,
+              style: circularButtonStyle,
               onPressed: state == SocialAuthState.loading ||
                       state == SocialAuthState.authenticated
                   ? null // Disable button when loading or authenticated
@@ -56,7 +61,7 @@ class SocialLoginCard extends StatelessWidget {
                   : _buildSVGIcon(ImageManager.googleIcon),
             ),
             OutlinedButton(
-              style: style,
+              style: circularButtonStyle,
               onPressed: state == SocialAuthState.loading ||
                       state == SocialAuthState.authenticated
                   ? null // Disable button when loading or authenticated
@@ -69,7 +74,7 @@ class SocialLoginCard extends StatelessWidget {
                   : _buildSVGIcon(ImageManager.facebookIcon),
             ),
             OutlinedButton(
-              style: style,
+              style: circularButtonStyle,
               onPressed: state == SocialAuthState.loading ||
                       state == SocialAuthState.authenticated
                   ? null // Disable button when loading or authenticated

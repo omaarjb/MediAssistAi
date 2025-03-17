@@ -1,4 +1,4 @@
 abstract class FontFamilyManager {
   FontFamilyManager._();
-  static const String poppins = "Poppins";
+  static const String poppins = "Lato";
 }

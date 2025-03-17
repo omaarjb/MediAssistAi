@@ -50,7 +50,7 @@ dependencies:
   formatted_text: ^4.0.1
   gap: ^3.0.1
   geolocator: ^13.0.1
-  google_generative_ai: ^0.4.3
+  google_generative_ai: ^0.4.5
   google_maps_flutter: ^2.5.3
   google_sign_in: ^6.3.0
   hive: ^2.2.3
@@ -107,14 +107,16 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Poppins
+    - family: Lato
       fonts:
-        - asset: assets/fonts/Poppins-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/Poppins-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/Poppins-SemiBold.ttf
+        # - asset: assets/fonts/Lato-Regular.ttf
+        #   weight: 500
+        - asset: assets/fonts/Lato-Bold.ttf
           weight: 600
+        # - asset: assets/fonts/Poppins-Regular.ttf
+        #   weight: 400
+        # - asset: assets/fonts/Poppins-SemiBold.ttf
+        #   weight: 600
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

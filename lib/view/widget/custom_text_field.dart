@@ -60,7 +60,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       TextFormField(
         initialValue: widget.initialValue,
         style: context.textTheme.bodySmall?.copyWith(color: ColorManager.black),
-        cursorColor: widget.cursorColor ?? ColorManager.green,
+        cursorColor:
+            widget.cursorColor ?? const Color.fromARGB(255, 2, 89, 219),
         keyboardType: widget.keyboardType,
         controller: widget.controller,
         obscureText: widget.obscureText ??
@@ -116,7 +117,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           setState(() {});
         },
         icon: Icon(isObscure == true ? icon1 : icon2),
-        color: isTap ? ColorManager.green : ColorManager.grey,
+        color:
+            isTap ? const Color.fromARGB(255, 2, 89, 219) : ColorManager.grey,
         iconSize: 21.r,
       ),
     );

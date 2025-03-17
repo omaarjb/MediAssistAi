@@ -81,16 +81,24 @@ class SocialAuthCubit extends Cubit<SocialAuthState> {
     try {
       _resetError();
       emit(SocialAuthState.loading);
-      final appleCredential =
-          await SignInWithApple.getAppleIDCredential(scopes: [
-        AppleIDAuthorizationScopes.email,
-        AppleIDAuthorizationScopes.fullName,
-      ]);
+
+      final appleCredential = await SignInWithApple.getAppleIDCredential(
+        scopes: [
+          AppleIDAuthorizationScopes.email,
+          AppleIDAuthorizationScopes.fullName,
+        ],
+        webAuthenticationOptions: WebAuthenticationOptions(
+          clientId: '', // Use your actual iOS app's clientId
+          redirectUri: Uri.parse(
+              'https://dr-ai-97349.firebaseapp.com/__/auth/handler'), // Your redirect URI
+        ),
+      );
 
       final oauthCredential = OAuthProvider("apple.com").credential(
         idToken: appleCredential.identityToken,
         accessToken: appleCredential.authorizationCode,
       );
+
       final userCredential =
           await _firebaseAuth.signInWithCredential(oauthCredential);
 

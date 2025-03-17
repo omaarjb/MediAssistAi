@@ -17,7 +17,7 @@ class CustomToolTip extends StatelessWidget {
     return Tooltip(
       preferBelow: false,
       decoration: BoxDecoration(
-        color: ColorManager.green,
+        color: const Color.fromARGB(255, 2, 89, 219),
         borderRadius: BorderRadius.circular(4.r),
       ),
       message: message,

@@ -35,19 +35,19 @@ abstract class ImageManager {
   static const String appleIcon = "assets/images/apple_icon.svg";
   static const String emailIcon = "assets/images/email_icon.svg";
   static const String passwordIcon = "assets/images/password_icon.svg";
-  static const String userIcon = "assets/images/user_icon.svg";
+  static const String userIcon = "assets/images/profile.svg";
   static const String errorIcon = "assets/images/error_icon.svg";
   static const String congratulationIcon =
       "assets/images/congratulation_icon.svg";
   static const String curvedLines = "assets/images/curved_lines.svg";
   static const String underLine = "assets/images/under_line.svg";
 
-  static const String ambulanceIcon = "assets/images/ambulance_icon.svg";
-  static const String policeIcon = "assets/images/police_icon.svg";
-  static const String firefightingIcon = "assets/images/firefighting_icon.svg";
-  static const String mapIcon = "assets/images/map_icon.svg";
+  static const String ambulanceIcon = "assets/images/ambulance.svg";
+  static const String policeIcon = "assets/images/emergency.svg";
+  static const String firefightingIcon = "assets/images/firefighter.svg";
+  static const String mapIcon = "assets/images/map.svg";
   static const String nfcIcon = "assets/images/nfc_icon.svg";
-  static const String chatIcon = "assets/images/chat_icon.svg";
+  static const String chatIcon = "assets/images/chat.svg";
   static const String trueIcon = "assets/images/true_icon.svg";
   static const String recordIcon = "assets/images/record_icon.svg";
   static const String editIcon = "assets/images/edit_icon.svg";
@@ -67,6 +67,6 @@ abstract class ImageManager {
   static const String updateIcon = "assets/images/update_icon.svg";
   static const String opinionIcon = "assets/images/opinion_icon.svg";
 
-  //? PNG
-  static const String robotIcon = "assets/images/robot.png";
+  //? WEBP
+  static const String robotIcon = "assets/images/robot.webp";
 }

@@ -49,7 +49,7 @@ class _EmailScreenState extends State<EmailScreen> {
               Gap(context.height * 0.032),
               CustomTextSpan(
                   textOne: "Welcome to ",
-                  textTwo: "Doctor AI",
+                  textTwo: "MediAssistAi",
                   fontSize: 24.spMin),
               Gap(8.h),
               Text(
@@ -111,7 +111,7 @@ class _EmailScreenState extends State<EmailScreen> {
               Gap(16.h),
               SignUpButton(
                 title: "Sign in",
-                subtitle: "Enter your Email ",
+                subtitle: "You have an account ? ",
                 onTap: () => Navigator.pop(context),
               ),
               Gap(32.h),

@@ -37,13 +37,31 @@ class AccountCubit extends Cubit<AccountState> {
   Future<void> logout(BuildContext context) async {
     emit(AccountLogoutLoading());
     try {
+      print("Starting logout process...");
       await Future.delayed(const Duration(seconds: 1));
-      await CacheData.clearData(clearData: true);
-      await FirebaseAuth.instance.signOut();
-      await GoogleSignIn().disconnect();
-      await FacebookAuth.instance.logOut();
 
-      // Reset SocialAuthCubit state
+      print("Clearing cache data...");
+      await CacheData.clearData(clearData: true);
+
+      print("Signing out from Firebase...");
+      await FirebaseAuth.instance.signOut();
+
+      // Check the authentication provider(s) used by the user
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        final providerData = user.providerData;
+        for (final provider in providerData) {
+          if (provider.providerId == 'google.com') {
+            print("Disconnecting Google Sign-In...");
+            await GoogleSignIn().disconnect();
+          } else if (provider.providerId == 'facebook.com') {
+            print("Logging out from Facebook...");
+            await FacebookAuth.instance.logOut();
+          }
+        }
+      }
+
+      print("Resetting SocialAuthCubit state...");
       context.read<SocialAuthCubit>().resetState();
 
       // Verify that the user is signed out
@@ -53,13 +71,17 @@ class AccountCubit extends Cubit<AccountState> {
         print("User is still signed in");
       }
 
-      // Navigate to the login screen
+      print("Navigating to login screen...");
       Navigator.pushNamedAndRemoveUntil(
           context, RouteManager.login, (route) => false);
 
       emit(AccountLogoutSuccess(message: "Logout successfully"));
     } on FirebaseException catch (err) {
+      print("Logout failed: ${err.toString()}");
       emit(AccountFailure(message: err.toString()));
+    } catch (e) {
+      print("Unexpected error during logout: $e");
+      emit(AccountFailure(message: "Unexpected error occurred"));
     }
   }
 

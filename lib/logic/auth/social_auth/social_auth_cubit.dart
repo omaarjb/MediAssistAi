@@ -25,6 +25,11 @@ class SocialAuthCubit extends Cubit<SocialAuthState> {
     try {
       _resetError();
       emit(SocialAuthState.loading);
+
+      // Sign out from Google to clear the cached account
+      await GoogleSignIn().signOut();
+
+      // Attempt to sign in with Google
       final googleUser = await GoogleSignIn().signIn();
       if (googleUser == null) {
         emit(SocialAuthState.unauthenticated);
@@ -55,6 +60,10 @@ class SocialAuthCubit extends Cubit<SocialAuthState> {
     try {
       _resetError();
       emit(SocialAuthState.loading);
+
+      // Log out from Facebook to clear the cached account
+      await FacebookAuth.instance.logOut();
+
       final LoginResult loginResult = await FacebookAuth.instance.login();
       if (loginResult.status != LoginStatus.success) {
         emit(SocialAuthState.unauthenticated);

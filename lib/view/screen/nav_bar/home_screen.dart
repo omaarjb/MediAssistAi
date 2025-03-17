@@ -18,12 +18,46 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: context.theme.scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 60),
           child: Column(
+            crossAxisAlignment:
+                CrossAxisAlignment.center, // Align content to the start
             children: [
+              // Welcome Title
+              Text(
+                "Welcome to",
+                style: context.textTheme.displayLarge?.copyWith(
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+              Gap(5.h),
+              Text(
+                "MediAssistAi",
+                style: context.textTheme.displayLarge?.copyWith(
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.bold,
+                  color: const Color.fromARGB(
+                      255, 2, 89, 219), // "MediAssistAi" in blue
+                ),
+              ),
               Gap(32.h),
+
+              // Chat Card
               _buildChatCard(context),
               Gap(32.h),
+
+              // Contacts Section Title
+              Text(
+                "Emergency Contacts",
+                style: context.textTheme.displayLarge?.copyWith(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Gap(12.h),
+
+              // Contacts Cards
               _buidContactsCard(),
               Gap(32.h),
             ],
@@ -36,10 +70,12 @@ class HomeScreen extends StatelessWidget {
   Widget _buildChatCard(BuildContext context) {
     return Card(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: ColorManager.grey.withOpacity(0.3), width: 0.5),
+        borderRadius: BorderRadius.circular(30),
+        side: BorderSide(
+            color: const Color.fromARGB(255, 229, 229, 230).withOpacity(0.3),
+            width: 0.5),
       ),
-      color: ColorManager.white.withOpacity(0.9),
+      color: const Color.fromARGB(255, 229, 229, 230).withOpacity(0.9),
       elevation: 2,
       child: Padding(
         padding: const EdgeInsets.all(18),
@@ -50,14 +86,17 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Chat in Doctor AI",
-                      style: context.textTheme.displayLarge?.copyWith(
-                        fontSize: 16.sp,
-                      )),
-                  Gap(12.h),
                   Text(
-                    "You can ask your medical questions And know the required medicines",
-                    style: context.textTheme.bodySmall,
+                    "Chat with MediAssistAi",
+                    style: context.textTheme.displayLarge?.copyWith(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Gap(12.h),
+                  const Text(
+                    "Ask your MediAssistAi for help with symptoms, medicine recommendations, health tips, or medical questions. Your health companion is here to guide you.",
+                    style: TextStyle(color: Color.fromARGB(255, 88, 89, 90)),
                   ),
                   Gap(18.h),
                   Row(
@@ -65,7 +104,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       CustomButton(
                         size: Size(context.width * 0.375, 47),
-                        title: "Start Chat",
+                        title: "Chat Now",
                         onPressed: () {
                           context.bloc<ChatCubit>().initHive();
                           Navigator.pushNamed(context, RouteManager.chat);
@@ -89,23 +128,31 @@ class HomeScreen extends StatelessWidget {
   Widget _buidContactsCard() {
     return const Row(
       children: [
-        ContactCard(
-          image: ImageManager.ambulanceIcon,
-          title: "Ambulance",
-          number: "123",
-          color: ColorManager.green,
+        Expanded(
+          child: ContactCard(
+            image: ImageManager.ambulanceIcon,
+            title: "Ambulance",
+            number: "150",
+            color: ColorManager.orange,
+          ),
         ),
-        ContactCard(
-          image: ImageManager.policeIcon,
-          title: "Amergency",
-          number: "112",
-          color: ColorManager.darkBlue,
+        Gap(12),
+        Expanded(
+          child: ContactCard(
+            image: ImageManager.policeIcon,
+            title: "Police",
+            number: "19",
+            color: ColorManager.lightBlue,
+          ),
         ),
-        ContactCard(
-          image: ImageManager.firefightingIcon,
-          title: "Firefighting",
-          number: "180",
-          color: ColorManager.orange,
+        Gap(12),
+        Expanded(
+          child: ContactCard(
+            image: ImageManager.firefightingIcon,
+            title: "Firefighting",
+            number: "15",
+            color: ColorManager.green,
+          ),
         ),
       ],
     );

@@ -1,6 +1,5 @@
 import 'package:dr_ai/utils/helper/extention.dart';
 import 'package:flutter/material.dart';
-import '../../utils/constant/color.dart';
 
 class SignUpButton extends StatelessWidget {
   const SignUpButton({
@@ -27,10 +26,6 @@ class SignUpButton extends StatelessWidget {
             title,
             style: context.textTheme.displaySmall,
           ),
-          const Icon(
-            Icons.arrow_outward,
-            color: Color.fromARGB(255, 2, 89, 219),
-          )
         ],
       ),
     );

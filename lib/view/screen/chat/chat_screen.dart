@@ -115,19 +115,25 @@ class _ChatScreenState extends State<ChatScreen> {
         if (state is ChatDeleteSuccess) {
           _isChatDeletingLoading = false;
           customSnackBar(context, "Chat History Deleted Successfully.",
-              ColorManager.green, 1);
+              const Color.fromARGB(255, 2, 89, 219), 1);
         }
         if (state is ChatDeleteFailure) {
           _isChatDeletingLoading = false;
           customSnackBar(context, "Chat History Deleted Successfully.",
-              ColorManager.green);
+              const Color.fromARGB(255, 2, 89, 219));
         }
       },
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Doctor AI Chat"),
-            shape: context.appBarTheme.shape,
+            title: const Text(
+              "MediAssistAi Chat",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Lato'), // Set text color to white
+            ),
+            backgroundColor:
+                Colors.blue, // Set the AppBar background color if needed
             actions: [
               _buildPopupMenuButton(),
             ],
@@ -161,7 +167,7 @@ class _ChatScreenState extends State<ChatScreen> {
         width: 50.w,
         height: 50.w,
         decoration: BoxDecoration(
-          color: ColorManager.green.withOpacity(0.5),
+          color: const Color.fromARGB(255, 2, 89, 219).withOpacity(0.5),
           shape: BoxShape.circle,
         ),
         child: SizedBox(
@@ -186,10 +192,10 @@ class _ChatScreenState extends State<ChatScreen> {
             width: 100.w,
             height: 100.h,
             // ignore: deprecated_member_use
-            color: ColorManager.green,
+            color: const Color.fromARGB(255, 2, 89, 219),
           ),
           Gap(16.h),
-          Text("Start Chatting With Dr. AI",
+          Text("Start Chatting With MediAssistAi",
               style: context.textTheme.bodyMedium),
         ],
       ),
@@ -231,7 +237,7 @@ class _ChatScreenState extends State<ChatScreen> {
         }
       },
       style: context.textTheme.bodySmall?.copyWith(color: ColorManager.black),
-      cursorColor: ColorManager.green,
+      cursorColor: const Color.fromARGB(255, 2, 89, 219),
       controller: _txtController,
       textDirection: cubit.getFieldDirection(_txtController.text),
       onSubmitted: (_) => _sendMessage(),
@@ -246,7 +252,7 @@ class _ChatScreenState extends State<ChatScreen> {
               onPressed: () => _sendMessage(),
               icon: const Icon(
                 Icons.send,
-                color: ColorManager.green,
+                color: Color.fromARGB(255, 2, 89, 219),
                 size: 25,
               ),
             ),
@@ -287,7 +293,7 @@ class _ChatScreenState extends State<ChatScreen> {
       splashColor: ColorManager.white.withOpacity(0.3),
       elevation: 2,
       onPressed: _scrollToEnd,
-      backgroundColor: ColorManager.green,
+      backgroundColor: const Color.fromARGB(255, 2, 89, 219),
       child: const Icon(
         Icons.keyboard_double_arrow_down_rounded,
         color: ColorManager.white,

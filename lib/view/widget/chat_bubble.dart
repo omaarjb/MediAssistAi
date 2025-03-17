@@ -31,7 +31,7 @@ class ChatBubbleForLoading extends StatelessWidget {
         child: const LoadingIndicator(
           indicatorType: Indicator.ballPulseSync,
           colors: [
-            ColorManager.green,
+            Color.fromARGB(255, 2, 89, 219),
             ColorManager.white,
             ColorManager.selver,
           ],
@@ -88,9 +88,11 @@ class _ChatBubbleForDrAiState extends State<ChatBubbleForDrAi> {
                 ),
                 child: TextSelectionTheme(
                   data: context.theme.textSelectionTheme.copyWith(
-                      cursorColor: ColorManager.green,
-                      selectionColor: ColorManager.green.withOpacity(0.3),
-                      selectionHandleColor: ColorManager.green),
+                      cursorColor: const Color.fromARGB(255, 2, 89, 219),
+                      selectionColor: const Color.fromARGB(255, 2, 89, 219)
+                          .withOpacity(0.3),
+                      selectionHandleColor:
+                          const Color.fromARGB(255, 2, 89, 219)),
                   child: FormattedText(
                     widget.message,
                     textDirection: cubit.getTextDirection(widget.message),
@@ -163,13 +165,13 @@ class ChatBubbleForGuest extends StatelessWidget {
             topLeft: Radius.circular(16),
             bottomRight: Radius.circular(16),
           ),
-          color: ColorManager.green,
+          color: Color.fromARGB(255, 2, 89, 219),
         ),
         child: TextSelectionTheme(
           data: context.theme.textSelectionTheme.copyWith(
             cursorColor: ColorManager.white,
             selectionColor: ColorManager.white.withOpacity(0.3),
-            selectionHandleColor: ColorManager.green,
+            selectionHandleColor: const Color.fromARGB(255, 2, 89, 219),
           ),
           child: SelectableText(message,
               textDirection: cubit.getTextDirection(message),

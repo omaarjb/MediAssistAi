@@ -32,18 +32,18 @@ class SignInStepperFormState extends State<SignInStepperForm> {
       lineStyle: LineStyle(
         lineLength: context.width / 6,
         lineType: LineType.dashed,
-        activeLineColor: ColorManager.green,
-        finishedLineColor: ColorManager.green,
+        activeLineColor: const Color.fromARGB(255, 2, 89, 219),
+        finishedLineColor: const Color.fromARGB(255, 2, 89, 219),
         defaultLineColor: ColorManager.grey,
         lineThickness: 2.dm,
       ),
       stepShape: StepShape.rRectangle,
       stepBorderRadius: 6.dm,
       borderThickness: 3.dm,
-      activeStepBorderColor: ColorManager.green,
+      activeStepBorderColor: const Color.fromARGB(255, 2, 89, 219),
       defaultStepBorderType: BorderType.normal,
       stepRadius: 24.r,
-      finishedStepBorderColor: ColorManager.green,
+      finishedStepBorderColor: const Color.fromARGB(255, 2, 89, 219),
       finishedStepTextColor: Colors.deepOrange,
       finishedStepBackgroundColor: ColorManager.white,
       activeStepIconColor: ColorManager.white,
@@ -54,7 +54,9 @@ class SignInStepperFormState extends State<SignInStepperForm> {
             width: 18.w,
             height: 18.w,
             ImageManager.emailIcon,
-            color: activeStep >= 0 ? ColorManager.green : ColorManager.grey,
+            color: activeStep >= 0
+                ? const Color.fromARGB(255, 2, 89, 219)
+                : ColorManager.grey,
           ),
           customTitle: Text(
             "Email",
@@ -69,7 +71,9 @@ class SignInStepperFormState extends State<SignInStepperForm> {
             width: 18.w,
             height: 18.w,
             ImageManager.passwordIcon,
-            color: activeStep >= 1 ? ColorManager.green : ColorManager.grey,
+            color: activeStep >= 1
+                ? const Color.fromARGB(255, 2, 89, 219)
+                : ColorManager.grey,
           ),
           customTitle: Text(
             "Password",
@@ -84,7 +88,9 @@ class SignInStepperFormState extends State<SignInStepperForm> {
             width: 18.w,
             height: 18.w,
             ImageManager.userIcon,
-            color: activeStep >= 2 ? ColorManager.green : ColorManager.grey,
+            color: activeStep >= 2
+                ? const Color.fromARGB(255, 2, 89, 219)
+                : ColorManager.grey,
           ),
           customTitle: Text(
             "Information",
@@ -137,18 +143,20 @@ class ReAuthanticateStepperState extends State<ReAuthanticateStepper> {
       lineStyle: LineStyle(
         lineLength: context.width / 3,
         lineType: LineType.dashed,
-        activeLineColor: ColorManager.green,
-        finishedLineColor: widget.stepColorTwo ?? ColorManager.green,
+        activeLineColor: const Color.fromARGB(255, 2, 89, 219),
+        finishedLineColor:
+            widget.stepColorTwo ?? const Color.fromARGB(255, 2, 89, 219),
         defaultLineColor: ColorManager.grey,
         lineThickness: 2.dm,
       ),
       stepShape: StepShape.rRectangle,
       stepBorderRadius: 6.dm,
       borderThickness: 3.dm,
-      activeStepBorderColor: widget.stepColorTwo ?? ColorManager.green,
+      activeStepBorderColor:
+          widget.stepColorTwo ?? const Color.fromARGB(255, 2, 89, 219),
       defaultStepBorderType: BorderType.normal,
       stepRadius: 24.r,
-      finishedStepBorderColor: ColorManager.green,
+      finishedStepBorderColor: const Color.fromARGB(255, 2, 89, 219),
       finishedStepTextColor: Colors.deepOrange,
       finishedStepBackgroundColor: ColorManager.white,
       activeStepIconColor: ColorManager.white,
@@ -159,7 +167,9 @@ class ReAuthanticateStepperState extends State<ReAuthanticateStepper> {
             width: 18.w,
             height: 18.w,
             widget.stepIconOne ?? ImageManager.passwordIcon,
-            color: activeStep >= 0 ? ColorManager.green : ColorManager.grey,
+            color: activeStep >= 0
+                ? const Color.fromARGB(255, 2, 89, 219)
+                : ColorManager.grey,
           ),
           customTitle: Text(
             widget.stepTitleOne ?? "Old Password",
@@ -175,7 +185,7 @@ class ReAuthanticateStepperState extends State<ReAuthanticateStepper> {
             height: 18.w,
             widget.stepIconTwo ?? ImageManager.passwordIcon,
             color: activeStep >= 1
-                ? widget.stepColorTwo ?? ColorManager.green
+                ? widget.stepColorTwo ?? const Color.fromARGB(255, 2, 89, 219)
                 : ColorManager.grey,
           ),
           customTitle: Text(

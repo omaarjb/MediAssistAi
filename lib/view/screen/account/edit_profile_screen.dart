@@ -75,8 +75,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         }
         if (state is ProfileUpdateSuccess) {
           _isloading = false;
-          customSnackBar(
-              context, "Profile Updated Successfully", ColorManager.green);
+          customSnackBar(context, "Profile Updated Successfully",
+              const Color.fromARGB(255, 2, 89, 219));
         }
         if (state is ProfileUpdateFailure) {
           _isloading = false;
@@ -132,7 +132,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Widget _buildUserCard(BuildContext context,
       {required String char, required String name}) {
     final divider = Divider(
-      color: ColorManager.green.withOpacity(0.4),
+      color: const Color.fromARGB(255, 2, 89, 219).withOpacity(0.4),
       thickness: 1.w,
       endIndent: 5,
       indent: 5,
@@ -150,8 +150,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               height: context.width / 3.8,
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: ColorManager.green.withOpacity(0.1),
-                  border: Border.all(width: 2.w, color: ColorManager.green)),
+                  color: const Color.fromARGB(255, 2, 89, 219).withOpacity(0.1),
+                  border: Border.all(
+                      width: 2.w,
+                      color: const Color.fromARGB(255, 2, 89, 219))),
               child: Text(
                 char.toUpperCase(),
                 style: context.textTheme.displayLarge

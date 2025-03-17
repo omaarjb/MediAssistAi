@@ -110,7 +110,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   ),
                   divider,
                   BuildProfileCard(
-                      title: "logout",
+                      title: "Log Out",
                       iconData: Icons.logout,
                       color: ColorManager.error,
                       onPressed: () => customDialog(
@@ -147,11 +147,11 @@ class _AccountScreenState extends State<AccountScreen> {
             height: 50.w,
             width: 50.w,
             decoration: BoxDecoration(
-              color: ColorManager.green.withOpacity(0.1),
+              color: const Color.fromARGB(255, 2, 89, 219).withOpacity(0.1),
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
                 width: 1.5.w,
-                color: ColorManager.green,
+                color: const Color.fromARGB(255, 2, 89, 219),
               ),
             ),
             child: Text(
@@ -177,6 +177,7 @@ class _AccountScreenState extends State<AccountScreen> {
               ImageManager.editIcon,
               width: 20.w,
               height: 20.w,
+              color: const Color.fromARGB(255, 2, 89, 219),
             )),
       ),
     );

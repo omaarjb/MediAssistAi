@@ -27,15 +27,18 @@ class BuildProfileCard extends StatelessWidget {
       onTap: onPressed,
       splashFactory: InkSplash.splashFactory,
       child: ListTile(
-        contentPadding: const EdgeInsets.only(top: 6,bottom: 6,right: 6),
+        contentPadding: const EdgeInsets.only(top: 6, bottom: 6, right: 6),
         title: Text(title, style: context.textTheme.bodyMedium),
         trailing: Icon(Icons.arrow_forward_ios,
-            size: 16.r, grade: 60, color: color ?? ColorManager.green),
+            size: 16.r,
+            grade: 60,
+            color: color ?? const Color.fromARGB(255, 2, 89, 219)),
         leading: Container(
           width: 46.w,
           height: 46.w,
           decoration: BoxDecoration(
-              color: (color ?? ColorManager.green).withOpacity(0.1),
+              color: (color ?? const Color.fromARGB(255, 2, 89, 219))
+                  .withOpacity(0.1),
               borderRadius: BorderRadius.circular(8)),
           alignment: Alignment.center,
           padding: EdgeInsets.all(12.w),
@@ -43,7 +46,7 @@ class BuildProfileCard extends StatelessWidget {
               ? SvgPicture.asset(
                   color: removeColorIcon == true
                       ? null
-                      : color ?? ColorManager.green,
+                      : color ?? const Color.fromARGB(255, 2, 89, 219),
                   image!,
                   width: 20.w,
                   height: 20.w,

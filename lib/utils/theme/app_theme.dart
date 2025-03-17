@@ -35,7 +35,7 @@ abstract class AppTheme {
           backgroundColor:
               const WidgetStatePropertyAll(Color.fromARGB(255, 2, 89, 219)),
           shape: WidgetStatePropertyAll(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
           fixedSize: WidgetStatePropertyAll(Size(double.maxFinite, 48.h)),
         ),
       ),

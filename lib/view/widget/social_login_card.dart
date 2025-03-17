@@ -19,7 +19,7 @@ class SocialLoginCard extends StatelessWidget {
     final circularButtonStyle = OutlinedButton.styleFrom(
       shape: const CircleBorder(), // Make the button circular
       padding: EdgeInsets.all(5.w), // Adjust padding as needed
-      side: BorderSide(
+      side: const BorderSide(
         color: Color.fromARGB(255, 2, 89, 219), // Border color
         width: 2.0, // Border width
       ),

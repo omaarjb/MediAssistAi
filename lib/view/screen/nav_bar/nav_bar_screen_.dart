@@ -76,7 +76,7 @@ class _NavbarScreenState extends State<NavbarScreen> {
         ),
       ),
       bottomNavigationBar: AnimatedBottomNavigationBar.builder(
-        splashColor: ColorManager.green.withOpacity(0.3),
+        splashColor: const Color.fromARGB(255, 2, 89, 219).withOpacity(0.3),
         splashRadius: 18,
         gapWidth: 0,
         backgroundColor: ColorManager.white,
@@ -98,18 +98,22 @@ class _NavbarScreenState extends State<NavbarScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.asset(
-                  width: 20.w,
-                  height: 20.w,
+                  width: 23.w,
+                  height: 23.w,
                   fit: BoxFit.contain,
                   _buildItems()["icon"]![index],
-                  color: isActive ? ColorManager.green : ColorManager.grey,
+                  color: isActive
+                      ? const Color.fromARGB(255, 2, 89, 219)
+                      : ColorManager.grey,
                 ),
                 Gap(5.h),
                 Text(
                   _buildItems()["text"]![index],
                   style: context.textTheme.bodySmall?.copyWith(
                       fontSize: 12.spMin,
-                      color: isActive ? ColorManager.green : ColorManager.grey),
+                      color: isActive
+                          ? const Color.fromARGB(255, 2, 89, 219)
+                          : ColorManager.grey),
                 ),
               ],
             ),

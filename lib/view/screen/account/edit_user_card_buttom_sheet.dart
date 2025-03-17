@@ -66,8 +66,8 @@ class _BuildbuttomSheetState extends State<BuildbuttomSheet> {
           _isLoading = true;
         }
         if (state is ProfileUpdateSuccess) {
-          customSnackBar(
-              context, "Profile Updated Successfully", ColorManager.green);
+          customSnackBar(context, "Profile Updated Successfully",
+              const Color.fromARGB(255, 2, 89, 219));
           context.pop();
         }
         if (state is ProfileUpdateFailure) {

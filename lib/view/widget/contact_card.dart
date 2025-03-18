@@ -5,8 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 
-import '../../utils/constant/color.dart';
-
 class ContactCard extends StatelessWidget {
   const ContactCard({
     super.key,

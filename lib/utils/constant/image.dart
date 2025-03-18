@@ -29,7 +29,7 @@
 abstract class ImageManager {
   ImageManager._();
   //? SVG
-  static const String splashLogo = "assets/images/logo_dr_ai.svg";
+  static const String splashLogo = "assets/images/medilogo.svg";
   static const String googleIcon = "assets/images/google_icon.svg";
   static const String facebookIcon = "assets/images/facebook_icon.svg";
   static const String appleIcon = "assets/images/apple_icon.svg";

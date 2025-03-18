@@ -61,8 +61,8 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               SvgPicture.asset(
                 ImageManager.splashLogo,
-                width: context.width / 3,
-                height: context.width / 3,
+                width: 290,
+                height: 290,
               ),
               const BuidSplashLoadingIndicator(),
             ],

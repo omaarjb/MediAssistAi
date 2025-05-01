@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
                 ),
                 color: ColorManager.white,
                 debugShowCheckedModeBanner: false,
-                title: 'Dr AI',
+                title: 'MediAssistAi',
                 theme: AppTheme.lightTheme,
                 darkTheme: AppTheme.darkTheme, // Apply dark theme
                 themeMode: context

@@ -207,7 +207,7 @@ class _ChatScreenState extends State<ChatScreen> {
       controller: _scrollController,
       physics: const BouncingScrollPhysics(),
       itemCount: _chatMessageModel.length + (_isReceiverLoading ? 1 : 0),
-      reverse: true,
+      reverse: true, // Add this line
       itemBuilder: (context, index) {
         if (_isReceiverLoading && index == 0) {
           return const ChatBubbleForLoading();
@@ -304,7 +304,8 @@ class _ChatScreenState extends State<ChatScreen> {
   void _scrollToEnd() {
     if (_scrollController.hasClients) {
       _scrollController.animateTo(
-        _scrollController.position.minScrollExtent,
+        _scrollController
+            .position.maxScrollExtent, // Changed to maxScrollExtent
         duration: const Duration(milliseconds: 700),
         curve: Curves.fastOutSlowIn,
       );

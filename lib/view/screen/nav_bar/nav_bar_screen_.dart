@@ -2,7 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:dr_ai/utils/constant/color.dart';
 import 'package:dr_ai/utils/helper/extention.dart';
 import 'package:dr_ai/view/screen/nav_bar/account_screen.dart';
-import 'package:dr_ai/view/screen/nav_bar/nfc_screen.dart';
+// import 'package:dr_ai/view/screen/nav_bar/nfc_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -24,13 +24,13 @@ class _NavbarScreenState extends State<NavbarScreen> {
     return {
       "icon": [
         ImageManager.chatIcon,
-        ImageManager.nfcIcon,
+        // ImageManager.nfcIcon,
         ImageManager.mapIcon,
         ImageManager.userIcon,
       ],
       "text": [
         "chat",
-        "nfc",
+        // "nfc",
         "map",
         "account",
       ]
@@ -40,7 +40,7 @@ class _NavbarScreenState extends State<NavbarScreen> {
   List<Widget> _buildScreens() {
     return <Widget>[
       const HomeScreen(),
-      const NFCScreen(),
+      // const NFCScreen(),
       const MapScreen(),
       const AccountScreen(),
     ];
@@ -85,12 +85,12 @@ class _NavbarScreenState extends State<NavbarScreen> {
             Shadow(blurRadius: 20, color: ColorManager.grey.withOpacity(0.2)),
 
         activeIndex: _bottomNavIndex,
-        gapLocation: GapLocation.center,
+        gapLocation: GapLocation.end,
         height: 65.h,
         leftCornerRadius: 22,
-        rightCornerRadius: 22,
+        rightCornerRadius: 0,
         onTap: (index) => setState(() => _bottomNavIndex = index),
-        itemCount: 4,
+        itemCount: 3,
         tabBuilder: (int index, bool isActive) {
           return CustomToolTip(
             message: _buildItems()["text"]![index],

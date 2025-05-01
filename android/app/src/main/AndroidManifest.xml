@@ -5,7 +5,7 @@
     
 
     <application
-        android:label="Dr Ai"
+        android:label="MediAssistAi"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon"
         android:usesCleartextTraffic="true"

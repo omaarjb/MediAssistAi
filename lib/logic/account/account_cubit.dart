@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -294,38 +295,66 @@ class AccountCubit extends Cubit<AccountState> {
     emit(AccountRatingLoading());
     try {
       await Future.delayed(const Duration(milliseconds: 400));
-      DocumentReference userDocRef = _firestore
-          .collection('ratings')
-          .doc(FirebaseAuth.instance.currentUser!.uid);
-      await userDocRef.set({
-        'rating': '$rating / 5',
-      }, SetOptions(merge: true)).whenComplete(() async {
-        emit(AccountRatingSuccess());
-        await CacheData.setData(key: "rating", value: rating);
-        log('User rating updated successfully.');
-      }).timeout(const Duration(seconds: 5),
-          onTimeout: () => emit(AccountRatingFailure(
-              message: "There was an error, please try again")));
+
+      // Get the current user
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        emit(AccountRatingFailure(message: "User not logged in"));
+        return;
+      }
+
+      // Store the rating in Firestore with a timeout
+      final documentReference = await _firestore.collection('ratings').add({
+        'userId': user.uid, // Store the user ID
+        'rating': rating, // Store the rating value
+        'timestamp': DateTime.now().toIso8601String(), // Store the timestamp
+      }).timeout(const Duration(seconds: 5));
+
+      // If successful, emit success state
+      emit(AccountRatingSuccess());
+      await CacheData.setData(key: "rating", value: rating);
+      log('User rating stored successfully.');
+    } on TimeoutException catch (_) {
+      // Handle timeout
+      emit(AccountRatingFailure(
+          message: "There was an error, please try again"));
+      log('Timeout: Rating storage failed.');
     } on FirebaseException catch (err) {
+      // Handle Firebase errors
       emit(AccountRatingFailure(message: err.message.toString()));
-      log('Error updating user rating: $err');
+      log('Error storing user rating: $err');
+    } catch (err) {
+      // Handle other errors
+      emit(AccountRatingFailure(message: "An unexpected error occurred"));
+      log('Unexpected error: $err');
     }
   }
 
   Future<void> getUserRating() async {
     try {
-      DocumentSnapshot<Map<String, dynamic>>? userDocRef = await _firestore
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        log('User not logged in');
+        return;
+      }
+
+      // Query ratings for the current user
+      final querySnapshot = await _firestore
           .collection('ratings')
-          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .where('userId', isEqualTo: user.uid)
+          .orderBy('timestamp', descending: true)
+          .limit(1) // Get the most recent rating
           .get();
 
-      if (userDocRef.data() != null && userDocRef.data()!['rating'] != null) {
-        int? rating = int.tryParse(userDocRef.data()!['rating'][0]);
-        if (rating != null) {
-          await CacheData.setData(key: "rating", value: rating);
-          emit(AccountRatingResult(rating: rating));
-          log('User rating: $rating');
-        }
+      if (querySnapshot.docs.isNotEmpty) {
+        final ratingData = querySnapshot.docs.first.data();
+        final int rating = ratingData['rating'];
+        final String timestamp = ratingData['timestamp'];
+
+        await CacheData.setData(key: "rating", value: rating);
+        emit(AccountRatingResult(
+            rating: rating, timestamp: timestamp)); // Pass timestamp here
+        log('User rating: $rating, Timestamp: $timestamp');
       } else {
         log('User rating not found');
       }

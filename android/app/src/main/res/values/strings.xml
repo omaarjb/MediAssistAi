@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="app_name">Dr Ai</string>
+<string name="app_name">MediAssistAi</string>
 <string name="facebook_app_id">2940692152759585</string>
 <string name="fb_login_protocol_scheme">fb2940692152759585</string>
 <string name="facebook_client_token">91818a78b6172695bedc32ca6aeba41c</string>

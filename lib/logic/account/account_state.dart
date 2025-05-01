@@ -106,8 +106,10 @@ class AccountRatingFailure extends AccountState {
 
 class AccountRatingResult extends AccountState {
   final int? rating;
+  final String? timestamp; // Add this field
 
-  AccountRatingResult({this.rating});
+  AccountRatingResult(
+      {this.rating, this.timestamp}); // Add timestamp to the constructor
 }
 
 //! DELETE USER DATA
@@ -159,4 +161,3 @@ class ChatDeleteFailure extends AccountState {
 
 //   AccountLoadedFailure({required this.message});
 // }
-

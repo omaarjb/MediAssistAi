@@ -1,11 +1,12 @@
 import 'dart:developer';
 
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class GenerativeAiWebService {
   static final _model = GenerativeModel(
     model: 'gemini-2.0-flash',
-    apiKey: 'AIzaSyCc_RgZftsJWzvZ2_bMqwveG3Lr0Nuzlw0',
+    apiKey: dotenv.env['API_KEY'] ?? '',
   );
   static Future<String?> postData({required String text}) async {
     try {

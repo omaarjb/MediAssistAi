@@ -13,7 +13,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAk44ARDYlyxejknsj1k55m2N5o6aPY2Ws" />
+            android:value="AIzaSyDBNSw49zPupQGW1KKqgFmzx745apKDAew" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -89,6 +89,7 @@
 
     <!-- Location Permission -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <!-- Required visibility configuration for API level 30 and above -->
     <queries>

@@ -1,2 +1,0 @@
-C:/Users/omarc/Documents/New folder (2)/test/MediAssistAi/android/app/.cxx/RelWithDebInfo/6g6w3q5a/arm64-v8a/CMakeFiles/edit_cache.dir
-C:/Users/omarc/Documents/New folder (2)/test/MediAssistAi/android/app/.cxx/RelWithDebInfo/6g6w3q5a/arm64-v8a/CMakeFiles/rebuild_cache.dir
